@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Gridea</title>
+<title>aardio调用记事本打开txt文件 | Gridea</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -18,8 +18,12 @@
 
 
 
-    <meta name="description" content="温故而知新">
-    
+    <meta name="description" content="import win.ui;
+import console;
+/*DSG{{*/
+mainForm = win.form(text=&quot;aardio工程&quot;;right=959;bottom=591)
+mainForm.ad..." />
+    <meta name="keywords" content="" />
   </head>
   <body>
     <div id="app" class="main">
@@ -89,42 +93,46 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://zxq2233.github.io/aardio.github.io/post/aardio-diao-yong-ji-shi-ben-da-kai-txt-wen-jian/">
-                  <h2 class="post-title">aardio调用记事本打开txt文件</h2>
-                </a>
-                <div class="post-date">
-                  2022-03-13
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://zxq2233.github.io/aardio.github.io/post/aardio-shi-yong-lodop-da-yin-ji-da-yin-tiao-ma/">
-                  <h2 class="post-title">aardio使用LODOP打印机打印条码</h2>
-                </a>
-                <div class="post-date">
-                  2022-03-13
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
+          <div class="post-detail">
+            <h2 class="post-title">aardio调用记事本打开txt文件</h2>
+            <div class="post-date">2022-03-13</div>
+            
+            <div class="post-content" v-pre>
+              <pre><code class="language-javascript">import win.ui;
+import console;
+/*DSG{{*/
+mainForm = win.form(text=&quot;aardio工程&quot;;right=959;bottom=591)
+mainForm.add(
+button={cls=&quot;button&quot;;text=&quot;Button&quot;;left=79;top=65;right=234;bottom=146;z=1};
+button2={cls=&quot;button&quot;;text=&quot;Button&quot;;left=206;top=301;right=463;bottom=428;z=2}
+)
+/*}}*/
 
-          <div class="pagination-container">
-  
-  
-</div>
+import process;
+
+ process.shell(&quot;notepad&quot;,&quot;./1.txt&quot;,&quot;open&quot;,SW_SHOW);
+
+
+mainForm.show();
+return win.loopMessage();
+</code></pre>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zxq2233.github.io/aardio.github.io/post/aardio-shi-yong-lodop-da-yin-ji-da-yin-tiao-ma/">
+                  <h3 class="post-title">
+                    aardio使用LODOP打印机打印条码
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
 
         </div>
       </div>
