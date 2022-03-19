@@ -1,0 +1,77 @@
+import win.ui;
+import console;
+/*DSG{{*/
+mainForm = win.form(text="aardio工程";right=645;bottom=382)
+mainForm.add()
+/*}}*/
+
+import wsock.tcp.asynServer;
+
+
+function Hex(data){
+    var str="";
+    var len=#data;
+    for(i=1;len;1){
+            str = str++" "++string.right(string.format("%.2X", data[ i ]),2);//默认转换成有符号字节，因此取最右边两位  HEX码
+        }
+    return str; 
+    }
+ //hex转ascii
+function Ascii(data){
+   	var data = string.replace(data," ","");;
+	var str="";           
+        for(i=1;#data;2){
+            str =str ++ string.pack( eval("0x"++data[[i]]++data[[i+1]] ));
+        }
+
+    return str; 
+}   
+
+function unmbdex(str){
+ 
+var imei = string.slice(str,0,45);
+  var mdhex = string.slice(str,46,-1);
+  var table={..Ascii(imei),mdhex};
+  return table; 
+
+}
+
+function unmodbus03(hex){
+	var s = string.replace(hex," ","");
+	var len = string.slice(s,6,6);
+	var data= string.slice(s,7,6+tonumber(len)*2);
+	data=tonumber(data,16);
+	return  data;
+}
+
+
+
+
+var tcp=wsock.tcp.asynServer();
+
+
+tcp.onReceive = function(hSocket,err){
+    var client = tcp.client(hSocket);
+    
+    var str=Hex(client.readAll());
+  
+    var table=unmbdex(str);
+	var strhex= '\x2A\x00\x03\x01';
+	client.send(strhex);
+
+	
+	console.log(unmodbus03(table[2]));
+}
+
+
+tcp.start('127.0.0.1',15995);
+
+
+
+
+
+
+
+
+mainForm.show();
+return win.loopMessage();
